@@ -1,0 +1,53 @@
+html {
+    background: #44d418 url('./images/pexels-photo-255379.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    font-size: 10px;
+}
+
+body {
+    margin: 0; /* Remove default margins */
+    font-size: 2rem;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+    min-height: 100vh;
+}
+
+.clock {
+    width: 30rem;
+    height: 30rem;
+    border: 2rem solid white; /* Use rem for consistency */
+    border-radius: 50%;
+    position: relative;
+    padding: 2rem;
+    /* Fixed the comma error below */
+    box-shadow: 
+        0 0 0 4px rgba(0, 0, 0, 0.1), 
+        inset 0 0 0 3px #EFEFEF,
+        inset 0 0 10px black,
+        0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.clock-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-3px); /* Account for hand height to perfectly center */
+}
+
+.hand {
+    width: 50%; /* Reaches the middle */
+    height: 6px;
+    background: black;
+    position: absolute;
+    top: 50%;
+    
+    /* Crucial properties for rotation */
+    transform-origin: 100%; /* Pivot point at the very right end */
+    transform: rotate(90deg); /* Start pointing at 12 o'clock */
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1); /* Gives a "tick" bounce */
+}
